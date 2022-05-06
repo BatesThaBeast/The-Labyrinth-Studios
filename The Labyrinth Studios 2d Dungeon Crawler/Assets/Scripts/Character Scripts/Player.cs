@@ -44,6 +44,7 @@ public class Player : Character , IDataPersistence, IMoveable
     public int numOfHearts;//how many hearts are in the health bar
     public UnityEvent PlayerDied;//when the player dies, the event will kick off, which will be the game over screen
     protected GameObject[] inRange;//array that will hold all enemies, will be used to revive them
+    public GameObject arrowPrefab;
     //******************************************************************************************************************************************************
     //********************************************************INITIALIZATION********************************************************************************
     //******************************************************************************************************************************************************
@@ -74,6 +75,13 @@ public class Player : Character , IDataPersistence, IMoveable
         }
         heartGUI();//manages heart display
         ReviveInRange();//revives enemies once out of a certain range
+
+        if (Input.GetKeyDown("c"))//fires arrow
+        {
+            GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+            arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(2.0f, 0f);
+        }
+
     }
     private IEnumerator AttackCo()
     {
@@ -193,4 +201,14 @@ public class Player : Character , IDataPersistence, IMoveable
             Push(this.GetComponent<Collider2D>());
         }
     }
+
+    
+        
+
+
+
+
+
+
+
 }
