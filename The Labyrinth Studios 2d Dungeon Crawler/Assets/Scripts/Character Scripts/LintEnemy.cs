@@ -80,11 +80,14 @@ public class LintEnemy : Enemy, IDamageable, IKillable, IMoveable
     //******************************************************************************************************************************************************
     private void OnTriggerEnter2D(Collider2D obj)
     {
+<<<<<<< Updated upstream
         if (obj.CompareTag("Arrow"))
         {
             Push(this.GetComponent<Collider2D>());
             Damage(attackDamage, this.GetComponent<Collider2D>());            
         }
+=======
+>>>>>>> Stashed changes
         if (obj.CompareTag("Player"))//check to make sure either player hits enemy or enemy hits player
         {
             if (obj.gameObject != null)
